@@ -1,0 +1,2003 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FuzzBloom Creations</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/index.min.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="container header-content">
+        <div>
+          <p class="brand">FuzzBloom Creations</p>
+          <p class="tagline">Handcrafted Blooms That Last Forever.</p>
+        </div>
+        <div style="display: flex; gap: 1rem; align-items: center;">
+          <button class="cart-icon-btn" onclick="viewCart()">
+            🛒
+            <span class="cart-badge" id="cartBadge">0</span>
+          </button>
+          <button class="header-add-to-cart" onclick="scrollToPrices()">Buy Now</button>
+          <button class="secondary" onclick="openOrderDetails()">Order Details</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Floating Chat Button -->
+    <div class="chat-button" onclick="openSupportModal()">
+      💬
+    </div>
+
+    <main>
+      <section class="hero container" id="home">
+        <div class="hero-copy">
+          <h1>A beautiful fuzzywire-bouquets for you.</h1>
+          <p class="lead">
+            FuzzBloom Creations brings handcrafted fuzzy wire flowers to life, creating unique bouquets that stay beautiful and never fade.
+          </p>
+        </div>
+  <img src="fuzzy-wire-bouquet.png" class="hero-photo" />
+      </section>
+
+      <section class="price-list" id="prices">
+        <div class="container">
+          <h2>Price List</h2>
+          <p class="section-lead">Transparent rates for our most popular services.</p>
+          <div class="hero-actions" style="margin-bottom: 1.5rem; text-align: center;">
+            <button class="primary customize-btn" onclick="openCustomization()">Customize Your Bouquet</button>
+          </div>
+          <div class="price-grid">
+            <article class="price-card">
+              <img src="fuzzy-wire-tulip-bouquet-main.jpg" alt="Tulip" class="card-image" />
+              <h3>Tulip</h3>
+              <p class="price">70 pesos</p>
+              <ul>
+                <li>Service item one - 1 stem - 70</li>
+                <li>Service item two - 2 stems - 140</li>
+                <li>Service item three - 3 stems - 210</li>
+              </ul>
+              <a href="item-detail.html?item=tulip" class="add-to-cart"> Order🛒</a>
+            </article>
+            <article class="price-card featured">
+              <img src="fuzzy-wire-lily-bouquet-main.jpg" alt="Lily" class="card-image" />
+              <h3>Lily</h3>
+              <p class="price">75 pesos</p>
+              <ul>
+                <li>Service item one - 1 stem - 75</li>
+                <li>Service item two - 2 stems - 150</li>
+                <li>Service item three - 3 stems - 225</li>
+              </ul>
+              <a href="item-detail.html?item=lily" class="add-to-cart"> Order🛒</a>
+            </article>
+            <article class="price-card">
+              <img src="fuzzy-wire-sunflower-bouquet.jpg" alt="Sunflower" class="card-image" />
+              <h3>Sunflower</h3>
+              <p class="price">80 pesos</p>
+              <ul>
+                <li>Service item one - 1 stem - 80</li>
+                <li>Service item two - 2 stems - 160</li>
+                <li>Service item three - 3 stems - 240</li>
+              </ul>
+              <a href="item-detail.html?item=sunflower" class="add-to-cart"> Order🛒</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta" id="contact">
+        <div class="container cta-content">
+          <div>
+            <h2>Need a custom quote?</h2>
+            <p>Message us and we'll respond quickly with pricing.</p>
+          </div>
+          <button class="primary" onclick="openQuoteModal()">Get a Quote</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-about">
+            <h3>About FuzzBloom Creations</h3>
+            <p>FuzzBloom Creations specializes in handcrafted fuzzy wire flower bouquets that last forever. Our unique designs bring joy and beauty to any occasion, from birthdays to weddings and everything in between.</p>
+            <p><strong>Our Mission:</strong> To provide high-quality, everlasting floral arrangements that capture the essence of nature's beauty and create lasting memories for our customers.</p>
+          </div>
+          
+          <div class="footer-contact">
+            <h3>Contact Information</h3>
+            <p><strong>Email:</strong> ta.ta.060311@gmail.com</p>
+            <p><strong>Phone:</strong> +63 994 205 5861</p>
+            <p><strong>Business Hours:</strong> Monday - Saturday, 9 AM - 6 PM</p>
+          </div>
+        </div>
+        
+        <div class="footer-copyright">
+          <span>© 2026 FuzzBloom Creations. All rights reserved.</span>
+        </div>
+      </div>
+    </footer>
+    
+    <!-- Support Chat Modal -->
+    <div id="supportModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Support Chat</h2>
+          <span class="close" onclick="closeSupportModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <p>Need help with your transaction? Send us a message and we'll get back to you as soon as possible.</p>
+          <form id="supportForm" class="order-form">
+            <div class="form-group">
+              <label for="supportName">Full Name:</label>
+              <input type="text" id="supportName" name="supportName" required>
+            </div>
+            <div class="form-group">
+              <label for="supportEmail">Email:</label>
+              <input type="email" id="supportEmail" name="supportEmail" required>
+            </div>
+            <div class="form-group">
+              <label for="supportMessage">Message:</label>
+              <textarea id="supportMessage" name="supportMessage" rows="4" required placeholder="Describe your issue or question"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="secondary" onclick="closeSupportModal()">Cancel</button>
+          <button class="primary" onclick="submitSupport()">Send Message</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Customization Modal -->
+    <div id="customizationModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Customize Your Bouquet</h2>
+          <span class="close" onclick="closeCustomizationModal()">&times;</span>
+        </div>
+
+        <div class="modal-body">
+          <form id="customizationForm" class="order-form">
+            <div class="form-group">
+              <label for="flowerType">Flower Type:</label>
+              <select id="flowerType" name="flowerType" required>
+                <option value="">Select a flower</option>
+                <option value="Tulip">Tulip</option>
+                <option value="Lily">Lily</option>
+                <option value="Sunflower">Sunflower</option>
+                <option value="Mixed flowers">Mixed flowers</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="flowerIdentity">If Mixed, what flowers?</label>
+              <input
+                type="text"
+                id="flowerIdentity"
+                name="flowerIdentity"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="flowerColor">Color:</label>
+              <select id="flowerColor" name="flowerColor" required>
+                <option value="">Select a color</option>
+                <option value="Red">Red</option>
+                <option value="Pink">Pink</option>
+                <option value="Yellow">Yellow</option>
+                <option value="Purple">Purple</option>
+                <option value="White">White</option>
+                <option value="Mixed colors">Mixed colors</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="flowerQuantity">How many fuzzy wire flowers?</label>
+              <input
+                type="number"
+                id="flowerQuantity"
+                name="flowerQuantity"
+                min="1"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="customNotes">Anything else you want to add?</label>
+              <textarea
+                id="customNotes"
+                name="customNotes"
+                rows="3"
+                placeholder="Ribbon color, wrapper style, delivery date, etc."
+              ></textarea>
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button class="secondary" onclick="closeCustomizationModal()">Cancel</button>
+          <button class="primary" onclick="submitCustomization()">Continue</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quote Modal -->
+    <div id="quoteModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Request a Custom Quote</h2>
+          <span class="close" onclick="closeQuoteModal()">&times;</span>
+        </div>
+
+        <div class="modal-body">
+          <form id="quoteForm" class="order-form">
+            <div class="form-group">
+              <label for="quoteName">Full Name:</label>
+              <input type="text" id="quoteName" name="quoteName" required>
+            </div>
+
+            <div class="form-group">
+              <label for="quotePhone">Phone Number:</label>
+              <input type="number" id="quotePhone" name="quotePhone" required>
+            </div>
+
+            <div class="form-group">
+              <label for="quoteDetails">Bouquet Details:</label>
+              <textarea id="quoteDetails" name="quoteDetails" rows="4" required placeholder="Describe the bouquet size, colors, and any special requests"></textarea>
+            </div>
+          </form>
+        </div>
+
+        <div class="modal-footer">
+          <button class="secondary" onclick="closeQuoteModal()">Cancel</button>
+          <button class="primary" onclick="submitQuote()">Send Request</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quote Success Modal -->
+    <div id="quoteSuccessModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Quote Request Sent</h2>
+          <span class="close" onclick="closeQuoteSuccessModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <p>Your quote request has been sent successfully!</p>
+          <p>We will contact you soon with a custom price.</p>
+          <div id="quoteSuccessDetails"></div>
+        </div>
+        <div class="modal-footer">
+          <button class="primary" onclick="closeQuoteSuccessModal()">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quote Error Modal -->
+    <div id="quoteErrorModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Form Incomplete</h2>
+          <span class="close" onclick="closeQuoteErrorModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <p>Please fill in all required fields.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="primary" onclick="closeQuoteErrorModal()">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Shopping Cart Modal -->
+    <div id="cartModal" class="modal">
+      <div class="modal-content cart-modal-content">
+        <div class="modal-header">
+          <h2>Shopping Cart</h2>
+          <span class="close" onclick="closeCart()">&times;</span>
+        </div>
+        
+        <div class="modal-body">
+          <div id="cartItems" class="cart-items-list"></div>
+        </div>
+        
+        <div class="cart-summary">
+          <div class="cart-total">
+            <span>Total:</span>
+            <span id="cartTotal" class="total-price">0 pesos</span>
+          </div>
+        </div>
+        
+        <div class="modal-footer">
+          <button class="secondary" onclick="closeCart()">Continue Shopping</button>
+          <button class="primary" onclick="checkoutCart()" id="checkoutBtn">Checkout</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkoutModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Checkout</h2>
+          <span class="close" onclick="cancelCheckout()">&times;</span>
+        </div>
+        
+        <div class="modal-body">
+          <div id="checkoutSummary" class="order-summary"></div>
+          
+          <form id="checkoutForm" class="order-form">
+            <div class="form-group">
+              <label for="checkoutPaymentMethod">Payment Method:</label>
+              <div class="payment-options">
+                <label class="payment-option">
+                  <input type="radio" id="checkoutCash" name="checkoutPayment" value="cash" checked>
+                  <span>Cash on Delivery</span>
+                </label>
+                <label class="payment-option">
+                  <input type="radio" id="checkoutGcash" name="checkoutPayment" value="gcash">
+                  <span>GCash</span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="checkoutFullName">Full Name:</label>
+              <input type="text" id="checkoutFullName" name="checkoutFullName" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="checkoutPhone">Phone Number:</label>
+              <input type="number" id="checkoutPhone" name="checkoutPhone" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="checkoutAddress">Delivery Address:</label>
+              <textarea id="checkoutAddress" name="checkoutAddress" rows="3" required placeholder="Enter your complete delivery address"></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="checkoutNotes">Special Instructions (Optional):</label>
+              <textarea id="checkoutNotes" name="checkoutNotes" rows="2" placeholder="Any special instructions"></textarea>
+            </div>
+          </form>
+        </div>
+        
+        <div class="modal-footer">
+          <button class="secondary" onclick="cancelCheckout()">Cancel</button>
+          <button class="primary" onclick="submitCheckout()">Place Order</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Error Modal -->
+    <div id="formErrorModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Form Incomplete</h2>
+          <span class="close" onclick="closeFormErrorModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <p>Please fill in all required fields.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="primary" onclick="closeFormErrorModal()">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Custom Order Modal -->
+    <div id="customOrderModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Complete Your Custom Order</h2>
+          <span class="close" onclick="cancelCustomOrder()">&times;</span>
+        </div>
+        
+        <div class="modal-body">
+          <div id="customOrderSummary" class="order-summary"></div>
+          
+          <form id="customOrderForm" class="order-form">
+            <div class="form-group">
+              <label for="customPaymentMethod">Payment Method:</label>
+              <div class="payment-options">
+                <label class="payment-option">
+                  <input type="radio" id="customCash" name="customPayment" value="cash" checked>
+                  <span>Cash on Delivery</span>
+                </label>
+                <label class="payment-option">
+                  <input type="radio" id="customGcash" name="customPayment" value="gcash">
+                  <span>GCash</span>
+                </label>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="customFullName">Full Name:</label>
+              <input type="text" id="customFullName" name="customFullName" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="customPhone">Phone Number:</label>
+              <input type="number" id="customPhone" name="customPhone" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="customAddress">Delivery Address:</label>
+              <textarea id="customAddress" name="customAddress" rows="3" required placeholder="Enter your complete delivery address"></textarea>
+            </div>
+            
+            <div class="form-group">
+              <label for="customNotes">Special Instructions (Optional):</label>
+              <textarea id="customNotes" name="customNotes" rows="2" placeholder="Any special instructions"></textarea>
+            </div>
+          </form>
+        </div>
+        
+        <div class="modal-footer">
+          <button class="secondary" onclick="cancelCustomOrder()">Cancel</button>
+          <button class="primary" onclick="submitCustomOrder()">Place Order</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Receipt Modal -->
+    <div id="receiptModal" class="modal">
+      <div class="modal-content receipt-modal-content">
+        <div class="modal-header">
+          <h2>Order Confirmation</h2>
+          <span class="close" onclick="closeReceiptModal()">&times;</span>
+        </div>
+        
+        <div class="modal-body">
+          <div id="receiptContent" class="receipt-content">
+            <!-- Receipt content will be populated by JavaScript -->
+          </div>
+        </div>
+        
+        <div class="modal-footer">
+          <button class="primary" onclick="closeReceiptModal()">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Order Details (History) Modal -->
+    <div id="orderDetailsModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Order Details</h2>
+          <span class="close" onclick="closeOrderDetails()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="order-tabs">
+            <button class="order-tab active" type="button" onclick="setOrderTab('active')">Orders</button>
+            <button class="order-tab" type="button" onclick="setOrderTab('cancelled')">Cancelled</button>
+            <button class="order-tab" type="button" onclick="setOrderTab('completed')">Review</button>
+          </div>
+          <div id="orderDetailsList" class="order-history-list"></div>
+        </div>
+        <div class="modal-footer">
+          <button class="secondary" onclick="closeOrderDetails()">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review Confirmation Modal -->
+    <div id="reviewConfirmModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Confirm Review</h2>
+          <span class="close" onclick="closeReviewConfirmModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div id="reviewConfirmDetails"></div>
+        </div>
+        <div class="modal-footer">
+          <button class="secondary" onclick="closeReviewConfirmModal()">Cancel</button>
+          <button class="primary" onclick="submitReviewConfirmation()">Confirm</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Order Action Modal -->
+    <div id="orderActionModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 id="orderActionTitle">Confirm Action</h2>
+          <span class="close" onclick="closeOrderActionModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div id="orderActionDetails"></div>
+        </div>
+        <div class="modal-footer">
+          <button class="secondary" onclick="closeOrderActionModal()">Cancel</button>
+          <button class="primary" id="orderActionConfirmBtn" onclick="submitOrderAction()">Confirm</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cancelled Record Info Modal -->
+    <div id="cancelledRecordModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Cancelled Record</h2>
+          <span class="close" onclick="closeCancelledRecordModal()">&times;</span>
+        </div>
+        <div class="modal-body">
+          <p id="cancelledRecordDetails">This cancelled transaction stays in your history for records.</p>
+        </div>
+        <div class="modal-footer">
+          <button class="primary" onclick="closeCancelledRecordModal()">OK</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      let pendingReviewTransactionId = null;
+      let pendingOrderAction = null;
+
+      function openCustomization() {
+        document.getElementById('customizationModal').style.display = 'block';
+      }
+
+      function closeCustomizationModal() {
+        document.getElementById('customizationModal').style.display = 'none';
+        document.getElementById('customizationForm').reset();
+      }
+
+      function openSupportModal() {
+        document.getElementById('supportModal').style.display = 'block';
+      }
+
+      function closeSupportModal() {
+        document.getElementById('supportModal').style.display = 'none';
+        document.getElementById('supportForm').reset();
+      }
+
+      function submitSupport() {
+        const form = document.getElementById('supportForm');
+        
+        if (!form.checkValidity()) {
+          document.getElementById('formErrorModal').style.display = 'block';
+          return;
+        }
+        
+        const formData = new FormData(form);
+        const name = formData.get('supportName');
+        const email = formData.get('supportEmail');
+        const message = formData.get('supportMessage');
+
+        fetch('https://formspree.io/f/xykngblp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: name,
+            email: email,
+            message: message,
+            type: 'support',
+            date: new Date().toLocaleString()
+          })
+        }).then(response => {
+          alert('Message sent successfully! We will get back to you soon.');
+          closeSupportModal();
+        }).catch(error => {
+          alert('Message sent! We will get back to you soon.');
+          closeSupportModal();
+        });
+      }
+      
+      function scrollToPrices() {
+        const pricesSection = document.getElementById('prices');
+        pricesSection.scrollIntoView({ behavior: 'smooth' });
+      }
+
+      function openQuoteModal() {
+        document.getElementById('quoteModal').style.display = 'block';
+      }
+
+      function closeQuoteModal() {
+        document.getElementById('quoteModal').style.display = 'none';
+        document.getElementById('quoteForm').reset();
+      }
+
+      function closeQuoteSuccessModal() {
+        document.getElementById('quoteSuccessModal').style.display = 'none';
+      }
+
+      function closeQuoteErrorModal() {
+        document.getElementById('quoteErrorModal').style.display = 'none';
+      }
+
+      function submitQuote() {
+        const form = document.getElementById('quoteForm');
+
+        if (!form.checkValidity()) {
+          document.getElementById('quoteErrorModal').style.display = 'block';
+          return;
+        }
+
+        const formData = new FormData(form);
+        const name = formData.get('quoteName');
+        const phone = formData.get('quotePhone');
+        const details = formData.get('quoteDetails');
+
+        // Send email via fetch
+        const emailData = {
+          to_email: 'ta.ta.060311@gmail.com',
+          subject: 'New Quote Request - FuzzBloom Creations',
+          message: `Quote Request Received!\n\nCustomer Name: ${name}\nPhone: ${phone}\nBouquet Details: ${details}\n\nOrder Date: ${new Date().toLocaleString()}`
+        };
+
+        fetch('https://formspree.io/f/xykngblp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            name: name,
+            phone: phone,
+            details: details,
+            type: 'quote',
+            date: new Date().toLocaleString()
+          })
+        }).then(response => {
+          const detailsDiv = document.getElementById('quoteSuccessDetails');
+          detailsDiv.innerHTML = `<p><strong>Name:</strong> ${name}</p><p><strong>Phone:</strong> ${phone}</p><p><strong>Details:</strong> ${details}</p>`;
+          closeQuoteModal();
+          document.getElementById('quoteSuccessModal').style.display = 'block';
+        }).catch(error => {
+          const detailsDiv = document.getElementById('quoteSuccessDetails');
+          detailsDiv.innerHTML = `<p>Your request has been received. We will contact you soon.</p>`;
+          closeQuoteModal();
+          document.getElementById('quoteSuccessModal').style.display = 'block';
+        });
+      }
+
+      function submitCustomization() {
+        const form = document.getElementById('customizationForm');
+
+        if (!form.checkValidity()) {
+          document.getElementById('formErrorModal').style.display = 'block';
+          return;
+        }
+
+        const formData = new FormData(form);
+        const flowerType = formData.get('flowerType');
+        const flowerIdentity = formData.get('flowerIdentity');
+        const flowerColor = formData.get('flowerColor');
+        const flowerQuantity = parseInt(formData.get('flowerQuantity'));
+        const customNotes = formData.get('customNotes');
+
+        // Calculate price
+        let basePrice = 75; // default for mixed
+        if (flowerType === 'Tulip') basePrice = 70;
+        else if (flowerType === 'Lily') basePrice = 75;
+        else if (flowerType === 'Sunflower') basePrice = 80;
+        const totalPrice = basePrice * flowerQuantity;
+
+        // Store custom order details
+        window.customOrder = {
+          flowerType: flowerType,
+          flowerIdentity: flowerIdentity,
+          flowerColor: flowerColor,
+          flowerQuantity: flowerQuantity,
+          customNotes: customNotes,
+          totalPrice: totalPrice
+        };
+
+        // Show order summary
+        showCustomOrderSummary();
+
+        // Close customization modal and open order modal
+        closeCustomizationModal();
+        document.getElementById('customOrderModal').style.display = 'block';
+      }
+
+      function submitCustomOrder() {
+        const form = document.getElementById('customOrderForm');
+        
+        if (!form.checkValidity()) {
+          document.getElementById('formErrorModal').style.display = 'block';
+          return;
+        }
+        
+        const formData = new FormData(form);
+        const paymentMethod = formData.get('customPayment');
+        const fullName = formData.get('customFullName');
+        const phone = formData.get('customPhone');
+        const address = formData.get('customAddress');
+        const notes = formData.get('customNotes');
+
+        const orderDetails = {
+          customOrder: window.customOrder,
+          customer: {
+            name: fullName,
+            phone: phone,
+            address: address,
+            notes: notes
+          },
+          payment: paymentMethod,
+          orderDate: new Date().toLocaleString()
+        };
+
+        const isGCash = orderDetails.payment === 'gcash';
+
+        const paymentLine = isGCash
+          ? 'Payment Method: GCash (you will receive our official shop GCash number/QR and the transaction will appear as a purchase from our shop).'
+          : `Payment Method: Cash on Delivery`;
+
+        const extraLine = isGCash
+          ? '\n\nThis order will be processed just like buying directly in our physical shop. Please wait for our confirmation message with the exact GCash details.'
+          : '\n\nPlease prepare the exact amount for payment upon delivery.';
+
+        const emailMessage = `Custom order placed successfully!\n\n` +
+          `Flower Type: ${orderDetails.customOrder.flowerType}\n` +
+          `Color: ${orderDetails.customOrder.flowerColor}\n` +
+          `Quantity: ${orderDetails.customOrder.flowerQuantity}\n` +
+          `Total Price: ${orderDetails.customOrder.totalPrice} pesos\n` +
+          `${paymentLine}\n\n` +
+          `Customer: ${orderDetails.customer.name}\n` +
+          `Phone: ${orderDetails.customer.phone}\n` +
+          `Address: ${orderDetails.customer.address}` +
+          extraLine;
+
+        // Send email via fetch
+        fetch('https://formspree.io/f/xykngblp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            flowerType: orderDetails.customOrder.flowerType,
+            color: orderDetails.customOrder.flowerColor,
+            quantity: orderDetails.customOrder.flowerQuantity,
+            totalPrice: orderDetails.customOrder.totalPrice,
+            customerName: orderDetails.customer.name,
+            phone: orderDetails.customer.phone,
+            address: orderDetails.customer.address,
+            notes: orderDetails.customer.notes,
+            payment: orderDetails.payment,
+            type: 'custom_order',
+            date: orderDetails.orderDate
+          })
+        }).then(response => {
+          // Show receipt instead of alert
+          const orderData = {
+            type: 'custom_order',
+            customOrder: orderDetails.customOrder,
+            customer: orderDetails.customer,
+            payment: orderDetails.payment,
+            totalPrice: orderDetails.customOrder.totalPrice
+          };
+          showReceipt(orderData);
+          closeCustomOrderModal();
+        }).catch(error => {
+          // Show receipt even on error
+          const orderData = {
+            type: 'custom_order',
+            customOrder: orderDetails.customOrder,
+            customer: orderDetails.customer,
+            payment: orderDetails.payment,
+            totalPrice: orderDetails.customOrder.totalPrice
+          };
+          showReceipt(orderData);
+          closeCustomOrderModal();
+        });
+      }
+
+      function showCustomOrderSummary() {
+        const summary = document.getElementById('customOrderSummary');
+        const order = window.customOrder;
+        let details = `<p>Flower Type: ${order.flowerType}</p>`;
+        if (order.flowerType === 'Mixed flowers' && order.flowerIdentity) {
+          details += `<p>Mixed Flowers: ${order.flowerIdentity}</p>`;
+        }
+        details += `<p>Color: ${order.flowerColor}</p>
+        <p>Quantity: ${order.flowerQuantity} stems</p>
+        <p class="summary-price">${order.totalPrice} pesos</p>`;
+        if (order.customNotes && order.customNotes.trim() !== '') {
+          details += `<p>Notes: ${order.customNotes.trim()}</p>`;
+        }
+        summary.innerHTML = `
+          <div class="summary-item">
+            <div class="summary-details">
+              <h3>Custom Bouquet</h3>
+              ${details}
+            </div>
+          </div>
+        `;
+      }
+
+      function closeCustomOrderModal() {
+        document.getElementById('customOrderModal').style.display = 'none';
+        document.getElementById('customOrderForm').reset();
+      }
+
+      function cancelCustomOrder() {
+        closeCustomOrderModal();
+        window.customOrder = null;
+        const summary = document.getElementById('customOrderSummary');
+        if (summary) summary.innerHTML = '';
+      }
+
+      // Cart Management Functions
+      function getCart() {
+        const cart = localStorage.getItem('fuszyWireCart');
+        return cart ? JSON.parse(cart) : [];
+      }
+
+      function saveCart(cart) {
+        localStorage.setItem('fuszyWireCart', JSON.stringify(cart));
+        updateCartBadge();
+      }
+
+      function getCartItemKey(item, index) {
+        return item.id || `${item.item || item.name || 'item'}_${item.option || 'option'}_${index}`;
+      }
+
+      function getSelectedCheckoutItemIds() {
+        if (!Array.isArray(window.selectedCheckoutItemIds)) {
+          window.selectedCheckoutItemIds = [];
+        }
+        return new Set(window.selectedCheckoutItemIds);
+      }
+
+      function setSelectedCheckoutItemIds(set) {
+        window.selectedCheckoutItemIds = Array.from(set);
+      }
+
+      function toggleCheckoutItem(itemKey, isChecked) {
+        const selectedSet = getSelectedCheckoutItemIds();
+        if (isChecked) selectedSet.add(itemKey);
+        else selectedSet.delete(itemKey);
+        setSelectedCheckoutItemIds(selectedSet);
+        updateCartTotal();
+      }
+
+      function toggleCheckoutItemByIndex(index, isChecked) {
+        const cart = getCart();
+        if (!cart[index]) return;
+        const itemKey = getCartItemKey(cart[index], index);
+        toggleCheckoutItem(itemKey, isChecked);
+      }
+
+      function updateCartBadge() {
+        const cart = getCart();
+        const badge = document.getElementById('cartBadge');
+        const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
+        badge.textContent = totalItems;
+      }
+
+      function viewCart() {
+        const cart = getCart();
+        const cartItemsDiv = document.getElementById('cartItems');
+        const selectedSet = getSelectedCheckoutItemIds();
+        const currentKeys = cart.map((item, index) => getCartItemKey(item, index));
+
+        if ((window.selectedCheckoutItemIds || []).length === 0 && cart.length > 0) {
+          currentKeys.forEach(key => selectedSet.add(key));
+          setSelectedCheckoutItemIds(selectedSet);
+        } else {
+          const validSelected = new Set();
+          currentKeys.forEach(key => {
+            if (selectedSet.has(key)) validSelected.add(key);
+          });
+          setSelectedCheckoutItemIds(validSelected);
+        }
+        
+        if (cart.length === 0) {
+          cartItemsDiv.innerHTML = `
+            <div class="receipt-container">
+
+              <div class="receipt-details">
+                <p style="text-align: center; font-size: 1.2rem; margin: 2rem 0;">Your cart is empty. Start adding items!</p>
+              </div>
+            </div>
+          `;
+        } else {
+          cartItemsDiv.innerHTML = cart.map((item, index) => `
+            <div class="cart-item">
+              <div style="display:flex; align-items:center; margin-right:8px;">
+                <input
+                  type="checkbox"
+                  ${getSelectedCheckoutItemIds().has(getCartItemKey(item, index)) ? 'checked' : ''}
+                  onchange="toggleCheckoutItemByIndex(${index}, this.checked)"
+                  aria-label="Select ${item.name}"
+                >
+              </div>
+              <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+              <div class="cart-item-details">
+                <h4>${item.name}</h4>
+                <p class="cart-item-option">${item.option}</p>
+                <p class="cart-item-price">${item.price} pesos</p>
+              </div>
+              <div class="cart-item-quantity">
+                <button class="qty-btn" onclick="decreaseQty(${index})">−</button>
+                <input type="number" value="${item.quantity || 1}" readonly class="qty-input">
+                <button class="qty-btn" onclick="increaseQty(${index})">+</button>
+              </div>
+              <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+            </div>
+          `).join('');
+        }
+        
+        updateCartTotal();
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        checkoutBtn.style.display = cart.length === 0 ? 'none' : 'block';
+        document.getElementById('cartModal').style.display = 'block';
+      }
+
+      function closeCart() {
+        document.getElementById('cartModal').style.display = 'none';
+      }
+
+      function updateCartTotal() {
+        const cart = getCart();
+        const selectedSet = getSelectedCheckoutItemIds();
+        const total = cart.reduce((sum, item, index) => {
+          const itemKey = getCartItemKey(item, index);
+          if (!selectedSet.has(itemKey)) return sum;
+          return sum + (item.price * (item.quantity || 1));
+        }, 0);
+        document.getElementById('cartTotal').textContent = total + ' pesos';
+        const checkoutBtn = document.getElementById('checkoutBtn');
+        if (checkoutBtn) {
+          checkoutBtn.disabled = total === 0;
+        }
+      }
+
+      function removeFromCart(index) {
+        const cart = getCart();
+        cart.splice(index, 1);
+        saveCart(cart);
+        viewCart();
+      }
+
+      function increaseQty(index) {
+        const cart = getCart();
+        cart[index].quantity = (cart[index].quantity || 1) + 1;
+        saveCart(cart);
+        viewCart();
+      }
+
+      function decreaseQty(index) {
+        const cart = getCart();
+        if (cart[index].quantity > 1) {
+          cart[index].quantity--;
+          saveCart(cart);
+          viewCart();
+        }
+      }
+
+      function checkoutCart() {
+        const cart = getCart();
+        if (cart.length === 0) {
+          alert('Your cart is empty!');
+          return;
+        }
+
+        const selectedSet = getSelectedCheckoutItemIds();
+        const selectedItems = [];
+        const remainingItems = [];
+
+        cart.forEach((item, index) => {
+          const itemKey = getCartItemKey(item, index);
+          if (selectedSet.has(itemKey)) selectedItems.push(item);
+          else remainingItems.push(item);
+        });
+
+        if (selectedItems.length === 0) {
+          alert('Please select at least one item to checkout.');
+          return;
+        }
+
+        // Store selected cart for checkout
+        window.checkoutCart = selectedItems;
+        window.remainingCartAfterCheckout = remainingItems;
+        
+        // Show checkout summary
+        showCheckoutSummary();
+        
+        // Close cart modal and open checkout modal
+        closeCart();
+        document.getElementById('checkoutModal').style.display = 'block';
+      }
+
+      function closeCheckout() {
+        document.getElementById('checkoutModal').style.display = 'none';
+        document.getElementById('checkoutForm').reset();
+      }
+
+      function closeFormErrorModal() {
+        document.getElementById('formErrorModal').style.display = 'none';
+      }
+
+      function cancelCheckout() {
+        closeCheckout();
+        window.checkoutCart = null;
+        window.remainingCartAfterCheckout = null;
+        const summary = document.getElementById('checkoutSummary');
+        if (summary) summary.innerHTML = '';
+        // return user to cart view (cart itself is kept in localStorage)
+        viewCart();
+      }
+
+      function showCheckoutSummary() {
+        const summary = document.getElementById('checkoutSummary');
+        const cart = window.checkoutCart || [];
+        
+        let totalPrice = 0;
+        const itemsHtml = cart.map(item => {
+          const itemTotal = item.price * (item.quantity || 1);
+          totalPrice += itemTotal;
+          return `
+            <div class="summary-item">
+              <img src="${item.image}" alt="${item.name}" class="summary-image">
+              <div class="summary-details">
+                <h3>${item.name}</h3>
+                <p>${item.option}</p>
+                <p class="summary-price">${item.price} pesos x ${item.quantity || 1}</p>
+              </div>
+            </div>
+          `;
+        }).join('');
+        
+        summary.innerHTML = itemsHtml + `
+          <div class="checkout-total" style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--outline);">
+            <div style="display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1rem;">
+              <span>Total Amount:</span>
+              <span style="color: var(--accent);">${totalPrice} pesos</span>
+            </div>
+          </div>
+        `;
+      }
+
+      function submitCheckout() {
+        const form = document.getElementById('checkoutForm');
+        
+        if (!form.checkValidity()) {
+          document.getElementById('formErrorModal').style.display = 'block';
+          return;
+        }
+        
+        const formData = new FormData(form);
+        const paymentMethod = formData.get('checkoutPayment');
+        const fullName = formData.get('checkoutFullName');
+        const phone = formData.get('checkoutPhone');
+        const address = formData.get('checkoutAddress');
+        const notes = formData.get('checkoutNotes');
+        const cart = window.checkoutCart || [];
+        
+        const totalPrice = cart.reduce((sum, item) => sum + (item.price * (item.quantity || 1)), 0);
+
+        const isGCash = paymentMethod === 'gcash';
+
+        const paymentLine = isGCash
+          ? 'Payment Method: GCash (you will receive our official shop GCash number/QR and the transaction will appear as a purchase from our shop).'
+          : `Payment Method: Cash on Delivery`;
+
+        const extraLine = isGCash
+          ? '\\n\\nThis order will be processed just like buying directly in our physical shop. Please wait for our confirmation message with the exact GCash details.'
+          : '\\n\\nPlease prepare the exact amount for payment upon delivery.';
+
+        const orderSummary = cart.map(item => 
+          `• ${item.name} - ${item.option} (${item.quantity || 1}x) - ${item.price * (item.quantity || 1)} pesos`
+        ).join('\\n');
+
+        const emailMessage = `Order placed successfully!\\n\\n${orderSummary}\\n\\nTotal: ${totalPrice} pesos\\n${paymentLine}\\n\\nCustomer: ${fullName}\\nPhone: ${phone}\\nAddress: ${address}` + extraLine;
+
+        // Send email via fetch
+        fetch('https://formspree.io/f/xykngblp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            customerName: fullName,
+            phone: phone,
+            address: address,
+            notes: notes,
+            payment: paymentMethod,
+            cartItems: cart,
+            totalPrice: totalPrice,
+            type: 'cart_order',
+            date: new Date().toLocaleString()
+          })
+        }).then(response => {
+          // Show receipt instead of alert
+          const orderData = {
+            type: 'cart_order',
+            cartItems: cart,
+            customer: {
+              name: fullName,
+              phone: phone,
+              address: address,
+              notes: notes
+            },
+            payment: paymentMethod,
+            totalPrice: totalPrice
+          };
+          showReceipt(orderData);
+          closeCheckout();
+          saveCart(window.remainingCartAfterCheckout || []);
+          window.checkoutCart = null;
+          window.remainingCartAfterCheckout = null;
+          window.selectedCheckoutItemIds = [];
+        }).catch(error => {
+          // Show receipt even on error
+          const orderData = {
+            type: 'cart_order',
+            cartItems: cart,
+            customer: {
+              name: fullName,
+              phone: phone,
+              address: address,
+              notes: notes
+            },
+            payment: paymentMethod,
+            totalPrice: totalPrice
+          };
+          showReceipt(orderData);
+          closeCheckout();
+          saveCart(window.remainingCartAfterCheckout || []);
+          window.checkoutCart = null;
+          window.remainingCartAfterCheckout = null;
+          window.selectedCheckoutItemIds = [];
+        });
+      }
+      
+      // Initialize cart badge on page load
+      window.addEventListener('DOMContentLoaded', updateCartBadge);
+
+      // Transaction History (localStorage)
+      const TRANSACTIONS_KEY = 'fuzzBloomTransactions';
+
+      function loadTransactions() {
+        try {
+          const raw = localStorage.getItem(TRANSACTIONS_KEY);
+          const parsed = raw ? JSON.parse(raw) : [];
+          return Array.isArray(parsed) ? parsed : [];
+        } catch {
+          return [];
+        }
+      }
+
+      function saveTransactions(list) {
+        localStorage.setItem(TRANSACTIONS_KEY, JSON.stringify(list));
+      }
+
+      function getTransactionById(transactionId) {
+        return loadTransactions().find(t => t && t.transactionId === transactionId) || null;
+      }
+
+      function deriveStatus(orderData) {
+        if (orderData?.completedAt) return 'completed';
+        if (orderData?.cancelRequestedAt) return 'cancelled';
+        return 'active';
+      }
+
+      function upsertTransaction(orderData) {
+        if (!orderData || typeof orderData !== 'object') return null;
+        if (!orderData.transactionId) orderData.transactionId = generateTransactionId();
+        if (!orderData.receiptCreatedAt) orderData.receiptCreatedAt = new Date().toISOString();
+        orderData.status = deriveStatus(orderData);
+
+        const list = loadTransactions();
+        const idx = list.findIndex(t => t && t.transactionId === orderData.transactionId);
+        if (idx >= 0) {
+          list[idx] = { ...list[idx], ...orderData };
+        } else {
+          list.unshift(orderData);
+        }
+        saveTransactions(list);
+        return orderData;
+      }
+
+      function removeTransactionFromHistory(transactionId) {
+        const list = loadTransactions().filter(t => t && t.transactionId !== transactionId);
+        saveTransactions(list);
+      }
+
+      function markTransactionComplete(transactionId) {
+        const tx = getTransactionById(transactionId);
+        if (!tx || deriveStatus(tx) !== 'active') return;
+        openOrderActionModal({
+          type: 'delivered',
+          transactionId,
+          title: 'Mark Delivered',
+          confirmLabel: 'Mark Delivered',
+          message: `Mark this order as delivered?<br><br><strong>Transaction ID:</strong> ${transactionId}`
+        });
+      }
+
+      function setTransactionRating(transactionId, rating) {
+        const tx = getTransactionById(transactionId);
+        if (!tx) return;
+        const value = Number(rating);
+        if (!Number.isFinite(value) || value < 1 || value > 5) return;
+        tx.rating = value;
+        upsertTransaction(tx);
+        renderOrderDetails();
+      }
+
+      function confirmReview(transactionId) {
+        const tx = getTransactionById(transactionId);
+        if (!tx || tx.status !== 'completed') return;
+        const ratingValue = Number(tx.rating);
+        if (!Number.isFinite(ratingValue) || ratingValue < 1 || ratingValue > 5) {
+          alert('Please select a star rating before confirming.');
+          return;
+        }
+        pendingReviewTransactionId = transactionId;
+        const details = document.getElementById('reviewConfirmDetails');
+        if (details) {
+          details.innerHTML = `
+            <p><strong>Transaction ID:</strong> ${transactionId}</p>
+            <p><strong>Rating:</strong> ${ratingValue}/5</p>
+            <p>This will submit the rating and mark this order as <strong>Thank You</strong>.</p>
+          `;
+        }
+        document.getElementById('reviewConfirmModal').style.display = 'block';
+      }
+
+      function closeReviewConfirmModal() {
+        pendingReviewTransactionId = null;
+        document.getElementById('reviewConfirmModal').style.display = 'none';
+      }
+
+      function submitReviewConfirmation() {
+        if (!pendingReviewTransactionId) return;
+        const tx = getTransactionById(pendingReviewTransactionId);
+        if (!tx || tx.status !== 'completed') {
+          closeReviewConfirmModal();
+          return;
+        }
+
+        const ratingValue = Number(tx.rating);
+        if (!Number.isFinite(ratingValue) || ratingValue < 1 || ratingValue > 5) {
+          alert('Please select a star rating before confirming.');
+          closeReviewConfirmModal();
+          return;
+        }
+
+        sendRatingToEmail(tx, ratingValue);
+        tx.reviewConfirmedAt = new Date().toISOString();
+        upsertTransaction(tx);
+        closeReviewConfirmModal();
+        renderOrderDetails();
+      }
+
+      function sendRatingToEmail(transaction, ratingValue) {
+        if (!transaction) return;
+
+        const transactionId = transaction.transactionId || 'N/A';
+        const customerName = transaction.customer?.name || 'N/A';
+        const phone = transaction.customer?.phone || 'N/A';
+        const address = transaction.customer?.address || 'N/A';
+        const orderType = transaction.type || 'N/A';
+        const payment = transaction.payment || 'N/A';
+
+        let itemsSummary = '';
+        if (orderType === 'cart_order' && Array.isArray(transaction.cartItems)) {
+          itemsSummary = transaction.cartItems
+            .map(item => `${item.name} - ${item.option} (${item.quantity || 1}x)`)
+            .join(', ');
+        } else if (orderType === 'direct_order' && transaction.item) {
+          itemsSummary = `${transaction.item.name} - ${transaction.item.option}`;
+        } else if (orderType === 'custom_order' && transaction.customOrder) {
+          itemsSummary = `Custom ${transaction.customOrder.flowerType} (${transaction.customOrder.flowerQuantity} stems)`;
+        }
+
+        const message = [
+          `Order Rating Submitted`,
+          ``,
+          `Transaction ID: ${transactionId}`,
+          `Rating: ${ratingValue}/5`,
+          `Order Type: ${orderType}`,
+          `Payment: ${payment}`,
+          itemsSummary ? `Items: ${itemsSummary}` : null,
+          ``,
+          `Customer: ${customerName}`,
+          `Phone: ${phone}`,
+          `Address: ${address}`,
+          ``,
+          `Submitted at: ${new Date().toLocaleString()}`
+        ].filter(Boolean).join('\n');
+
+        fetch('https://formspree.io/f/xykngblp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: 'rating',
+            subject: 'Order Rating Submitted',
+            message,
+            transactionId,
+            rating: ratingValue,
+            orderType,
+            payment,
+            customerName,
+            phone,
+            address,
+            itemsSummary,
+            date: new Date().toLocaleString()
+          })
+        }).catch(() => {});
+      }
+
+      function viewTransaction(transactionId) {
+        const tx = getTransactionById(transactionId);
+        if (!tx) {
+          alert('Transaction not found.');
+          return;
+        }
+        closeOrderDetails();
+        window.lastOrder = tx;
+        if (tx.cancelRequestedAt) showCancellationReceipt(tx);
+        else showReceipt(tx);
+      }
+
+      function cancelTransactionFromHistory(transactionId) {
+        const tx = getTransactionById(transactionId);
+        if (!tx) {
+          alert('Transaction not found.');
+          return;
+        }
+        if (deriveStatus(tx) !== 'active') {
+          alert('This order is already in review and cannot be cancelled here.');
+          return;
+        }
+        openOrderActionModal({
+          type: 'cancel',
+          transactionId,
+          title: 'Cancel Order',
+          confirmLabel: 'Cancel Order',
+          message: `Are you sure you want to cancel this order?<br><br><strong>Transaction ID:</strong> ${transactionId}`
+        });
+      }
+
+      function removeTransactionWhenDone(transactionId) {
+        const tx = getTransactionById(transactionId);
+        if (!tx) return;
+        if (tx.status !== 'cancelled') {
+          alert('Only cancelled transactions can be removed.');
+          return;
+        }
+        openOrderActionModal({
+          type: 'remove',
+          transactionId,
+          title: 'Cancelled Record',
+          confirmLabel: 'OK',
+          message: `This cancelled transaction will be kept for records and will not be removed.<br><br><strong>Transaction ID:</strong> ${transactionId}`
+        });
+      }
+
+      function openOrderActionModal(action) {
+        pendingOrderAction = action;
+        const titleEl = document.getElementById('orderActionTitle');
+        const detailsEl = document.getElementById('orderActionDetails');
+        const confirmBtn = document.getElementById('orderActionConfirmBtn');
+        if (titleEl) titleEl.textContent = action.title || 'Confirm Action';
+        if (detailsEl) detailsEl.innerHTML = action.message || '';
+        if (confirmBtn) confirmBtn.textContent = action.confirmLabel || 'Confirm';
+        document.getElementById('orderActionModal').style.display = 'block';
+      }
+
+      function closeOrderActionModal() {
+        pendingOrderAction = null;
+        document.getElementById('orderActionModal').style.display = 'none';
+      }
+
+      function openCancelledRecordModal(transactionId) {
+        const details = document.getElementById('cancelledRecordDetails');
+        if (details) {
+          details.innerHTML = `This cancelled transaction will be kept in history for records.<br><br><strong>Transaction ID:</strong> ${transactionId}`;
+        }
+        document.getElementById('cancelledRecordModal').style.display = 'block';
+      }
+
+      function closeCancelledRecordModal() {
+        document.getElementById('cancelledRecordModal').style.display = 'none';
+      }
+
+      function submitOrderAction() {
+        if (!pendingOrderAction || !pendingOrderAction.transactionId) return;
+        const { type, transactionId } = pendingOrderAction;
+        const tx = getTransactionById(transactionId);
+        if (!tx) {
+          closeOrderActionModal();
+          return;
+        }
+
+        if (type === 'delivered') {
+          if (deriveStatus(tx) !== 'active') {
+            closeOrderActionModal();
+            renderOrderDetails();
+            return;
+          }
+          tx.completedAt = new Date().toISOString();
+          tx.status = 'completed';
+          upsertTransaction(tx);
+          closeOrderActionModal();
+          renderOrderDetails();
+          return;
+        }
+
+        if (type === 'cancel') {
+          if (deriveStatus(tx) !== 'active') {
+            closeOrderActionModal();
+            renderOrderDetails();
+            return;
+          }
+          submitCancellationFromHistory(tx);
+          return;
+        }
+
+        if (type === 'remove') {
+          if (deriveStatus(tx) !== 'cancelled') {
+            closeOrderActionModal();
+            renderOrderDetails();
+            return;
+          }
+          closeOrderActionModal();
+          renderOrderDetails();
+          openCancelledRecordModal(transactionId);
+        }
+      }
+
+      function submitCancellationFromHistory(tx) {
+        const transactionId = tx.transactionId || 'N/A';
+        const customerName = tx.customer?.name || 'N/A';
+        const phone = tx.customer?.phone || 'N/A';
+        const address = tx.customer?.address || 'N/A';
+        const orderType = tx.type || 'N/A';
+        const payment = tx.payment || 'N/A';
+
+        let itemsSummary = '';
+        if (orderType === 'cart_order' && Array.isArray(tx.cartItems)) {
+          itemsSummary = tx.cartItems
+            .map(item => `${item.name} - ${item.option} (${item.quantity || 1}x)`)
+            .join(', ');
+        } else if (orderType === 'custom_order' && tx.customOrder) {
+          itemsSummary = `Custom ${tx.customOrder.flowerType} (${tx.customOrder.flowerQuantity} stems)`;
+        } else if (orderType === 'direct_order' && tx.item) {
+          itemsSummary = `${tx.item.name} - ${tx.item.option}`;
+        }
+
+        const message = [
+          `Order Cancellation Request`,
+          ``,
+          `Transaction ID: ${transactionId}`,
+          `Order Type: ${orderType}`,
+          `Payment: ${payment}`,
+          itemsSummary ? `Items: ${itemsSummary}` : null,
+          ``,
+          `Customer: ${customerName}`,
+          `Phone: ${phone}`,
+          `Address: ${address}`,
+          ``,
+          `Requested at: ${new Date().toLocaleString()}`
+        ].filter(Boolean).join('\n');
+
+        fetch('https://formspree.io/f/xykngblp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: 'cancel',
+            subject: 'Order Cancellation Request',
+            message,
+            transactionId,
+            orderType,
+            payment,
+            customerName,
+            phone,
+            address,
+            itemsSummary,
+            date: new Date().toLocaleString()
+          })
+        }).finally(() => {
+          tx.cancelRequestedAt = new Date().toISOString();
+          if (!tx.cancelReceiptId) {
+            tx.cancelReceiptId = generateCancellationId();
+          }
+          tx.status = 'cancelled';
+          upsertTransaction(tx);
+          closeOrderActionModal();
+          renderOrderDetails();
+          showCancellationReceipt(tx);
+        });
+      }
+
+      let currentOrderTab = 'active';
+
+      function openOrderDetails() {
+        currentOrderTab = currentOrderTab || 'active';
+        document.getElementById('orderDetailsModal').style.display = 'block';
+        setOrderTab(currentOrderTab);
+      }
+
+      function closeOrderDetails() {
+        document.getElementById('orderDetailsModal').style.display = 'none';
+      }
+
+      function setOrderTab(tab) {
+        currentOrderTab = tab;
+        const tabs = Array.from(document.querySelectorAll('#orderDetailsModal .order-tab'));
+        tabs.forEach(btn => btn.classList.remove('active'));
+        const tabIndex = tab === 'active' ? 0 : tab === 'cancelled' ? 1 : 2;
+        if (tabs[tabIndex]) tabs[tabIndex].classList.add('active');
+        renderOrderDetails();
+      }
+
+      function formatTxDate(iso) {
+        const d = new Date(iso);
+        if (Number.isNaN(d.getTime())) return 'N/A';
+        return `${d.toLocaleDateString()} ${d.toLocaleTimeString()}`;
+      }
+
+      function renderOrderDetails() {
+        const listEl = document.getElementById('orderDetailsList');
+        if (!listEl) return;
+
+        const transactions = loadTransactions()
+          .map(t => ({ ...t, status: deriveStatus(t) }))
+          .filter(t => t && t.status === currentOrderTab);
+
+        if (transactions.length === 0) {
+          listEl.innerHTML = `<div class="order-history-empty">No ${currentOrderTab === 'active' ? 'orders' : currentOrderTab === 'completed' ? 'review' : currentOrderTab} transactions yet.</div>`;
+          return;
+        }
+
+        listEl.innerHTML = transactions.map(tx => {
+          const createdAt = tx.receiptCreatedAt || tx.orderDate || '';
+          const total = typeof tx.totalPrice === 'number'
+            ? `${tx.totalPrice} pesos`
+            : (tx.type === 'custom_order' ? `${tx.customOrder?.totalPrice || 0} pesos` : 'N/A');
+
+          const statusLabel = tx.status === 'active'
+            ? 'Order'
+            : tx.status === 'cancelled'
+              ? 'Cancelled'
+              : tx.reviewConfirmedAt
+                ? 'Thank You'
+                : 'Review';
+          const badgeClass = tx.status;
+
+          const canRemove = tx.status === 'cancelled';
+          const canCancel = tx.status === 'active';
+          const canComplete = tx.status === 'active';
+          const canConfirmReview = tx.status === 'completed' && !tx.reviewConfirmedAt;
+
+          const ratingHtml = tx.status === 'completed' && !tx.reviewConfirmedAt
+            ? `
+              <div class="order-rating">
+                <span class="order-rating-label">${tx.rating ? 'Your rating:' : 'Rate this order:'}</span>
+                <div class="order-rating-stars">
+                  ${[1,2,3,4,5].map(star => `
+                    <button
+                      type="button"
+                      class="order-rating-star ${tx.rating && tx.rating >= star ? 'filled' : ''}"
+                      onclick="setTransactionRating('${tx.transactionId}', ${star})"
+                      aria-label="${star} star${star > 1 ? 's' : ''}"
+                    >★</button>
+                  `).join('')}
+                </div>
+              </div>
+            `
+            : tx.status === 'completed' && tx.reviewConfirmedAt
+              ? `
+              <div class="order-rating">
+                <span class="order-rating-label">Thank you for your review!</span>
+              </div>
+            `
+            : '';
+
+          return `
+            <div class="order-history-item">
+              <div class="order-history-top">
+                <div>
+                  <div class="order-history-id">Transaction: <strong>${tx.transactionId}</strong></div>
+                  <div class="order-history-meta">
+                    <span>${formatTxDate(createdAt)}</span>
+                    <span>•</span>
+                    <span>${total}</span>
+                    <span>•</span>
+                    <span>${tx.payment === 'gcash' ? 'GCash' : 'Cash on Delivery'}</span>
+                  </div>
+                </div>
+                <span class="order-badge ${badgeClass}">${statusLabel}</span>
+              </div>
+              <div class="order-history-actions">
+                <button class="secondary" type="button" onclick="viewTransaction('${tx.transactionId}')">View Receipt</button>
+                ${canCancel ? `<button class="secondary" type="button" onclick="cancelTransactionFromHistory('${tx.transactionId}')">Cancel</button>` : ``}
+                ${canComplete ? `<button class="secondary" type="button" onclick="markTransactionComplete('${tx.transactionId}')">Mark Delivered</button>` : ``}
+                ${canConfirmReview ? `<button class="secondary" type="button" onclick="confirmReview('${tx.transactionId}')">Confirm</button>` : ``}
+                ${canRemove ? `<button class="secondary danger" type="button" onclick="removeTransactionWhenDone('${tx.transactionId}')">Remove</button>` : ``}
+              </div>
+              ${ratingHtml}
+            </div>
+          `;
+        }).join('');
+      }
+
+      // Receipt Functions
+      function generateTransactionId() {
+        const timestamp = Date.now();
+        const random = Math.floor(Math.random() * 1000);
+        return `FB${timestamp}${random}`;
+      }
+
+      function generateCancellationId() {
+        const timestamp = Date.now();
+        const random = Math.floor(Math.random() * 1000);
+        return `CN${timestamp}${random}`;
+      }
+
+      function showReceipt(orderData) {
+        if (!orderData || typeof orderData !== 'object') {
+          alert('Unable to show receipt. Order data is missing.');
+          return;
+        }
+        const receiptContent = document.getElementById('receiptContent');
+        if (!orderData.transactionId) {
+          orderData.transactionId = generateTransactionId();
+        }
+        if (!orderData.receiptCreatedAt) {
+          orderData.receiptCreatedAt = new Date().toISOString();
+        }
+
+        const transactionId = orderData.transactionId;
+        const receiptDateCandidate = new Date(orderData.receiptCreatedAt);
+        const receiptDate = Number.isNaN(receiptDateCandidate.getTime()) ? new Date() : receiptDateCandidate;
+        
+        let itemsHtml = '';
+        let total = 0;
+        
+        if (orderData.type === 'cart_order') {
+          orderData.cartItems.forEach(item => {
+            const itemTotal = (item.price || 0) * (item.quantity || 1);
+            total += itemTotal;
+            itemsHtml += `
+              <tr class="receipt-item-row">
+                <td class="receipt-item-name">${item.name} - ${item.option}</td>
+                <td class="receipt-item-qty">${item.quantity || 1}</td>
+                <td class="receipt-item-price">${item.price} pesos</td>
+                <td class="receipt-item-total">${itemTotal} pesos</td>
+              </tr>
+            `;
+          });
+        } else if (orderData.type === 'custom_order' && orderData.customOrder) {
+          total = orderData.customOrder.totalPrice || 0;
+          const qty = orderData.customOrder.flowerQuantity || 1;
+          const unitPrice = qty ? Math.round(total / qty) : 0;
+          itemsHtml = `
+            <tr class="receipt-item-row">
+              <td class="receipt-item-name">Custom ${orderData.customOrder.flowerType || 'Bouquet'}</td>
+              <td class="receipt-item-qty">${qty}</td>
+              <td class="receipt-item-price">${unitPrice} pesos</td>
+              <td class="receipt-item-total">${total} pesos</td>
+            </tr>
+          `;
+        } else if (orderData.type === 'direct_order' && orderData.item) {
+          const item = orderData.item;
+          const quantity = item.quantity || 1;
+          total = (item.price || 0) * quantity;
+          itemsHtml = `
+            <tr class="receipt-item-row">
+              <td class="receipt-item-name">${item.name} - ${item.option || ''}</td>
+              <td class="receipt-item-qty">${quantity}</td>
+              <td class="receipt-item-price">${item.price || 0} pesos</td>
+              <td class="receipt-item-total">${total} pesos</td>
+            </tr>
+          `;
+        }
+        
+        const paymentMethodText = orderData.payment === 'gcash' ? 'GCash' : 'Cash on Delivery';
+        
+        // save order data for later review + history
+        window.lastOrder = orderData;
+        upsertTransaction(orderData);
+        receiptContent.innerHTML = `
+          <div class="receipt-container">
+            <div class="receipt-header">
+              <div class="receipt-logo">
+                <h1>FuzzBloom Creations</h1>
+                <p>Handcrafted Blooms That Last Forever</p>
+              </div>
+              <div class="receipt-title">
+                <h2>Order Receipt</h2>
+                <p>Transaction ID: ${transactionId}</p>
+              </div>
+            </div>
+            
+            <div class="receipt-details">
+              <div class="receipt-info">
+                <div class="info-section">
+                  <h3>Order Information</h3>
+                  <p><strong>Date:</strong> ${receiptDate.toLocaleDateString()}</p>
+                  <p><strong>Time:</strong> ${receiptDate.toLocaleTimeString()}</p>
+                </div>
+                <div class="info-section">
+                  <h3>Customer Details</h3>
+                  <p><strong>Name:</strong> ${orderData.customer.name}</p>
+                  <p><strong>Phone:</strong> ${orderData.customer.phone}</p>
+                  <p><strong>Address:</strong> ${orderData.customer.address}</p>
+                  ${orderData.customer.notes ? `<p><strong>Notes:</strong> ${orderData.customer.notes}</p>` : ''}
+                </div>
+              </div>
+            </div>
+            
+            <div class="receipt-items">
+              <h3>Order Details</h3>
+              <table class="receipt-table">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${itemsHtml}
+                </tbody>
+              </table>
+            </div>
+            
+            <div class="receipt-summary">
+              <div class="receipt-total">
+                <p><strong>Total Amount: ${total} pesos</strong></p>
+                <p><strong>Payment Method:</strong> ${paymentMethodText}</p>
+              </div>
+            </div>
+            
+            <div class="receipt-footer">
+              <p>Thank you for your order!</p>
+              <p>We will contact you soon with delivery details.</p>
+              <p class="receipt-note">This is an electronic receipt. Please keep for your records.</p>
+            </div>
+          </div>
+        `;
+        
+        document.getElementById('receiptModal').style.display = 'block';
+      }
+
+      function closeReceiptModal() {
+        document.getElementById('receiptModal').style.display = 'none';
+      }
+
+      function showCancellationReceipt(orderData) {
+        if (!orderData || typeof orderData !== 'object' || !orderData.customer) {
+          alert('No recent order found to show.');
+          return;
+        }
+
+        if (!orderData.transactionId) {
+          orderData.transactionId = generateTransactionId();
+        }
+        if (!orderData.cancelReceiptId) {
+          orderData.cancelReceiptId = generateCancellationId();
+        }
+        if (!orderData.cancelRequestedAt) {
+          orderData.cancelRequestedAt = new Date().toISOString();
+        }
+
+        const cancelDateCandidate = new Date(orderData.cancelRequestedAt);
+        const cancelDate = Number.isNaN(cancelDateCandidate.getTime()) ? new Date() : cancelDateCandidate;
+
+        const receiptContent = document.getElementById('receiptContent');
+
+        // Reuse the same item table rows as the regular receipt
+        let itemsHtml = '';
+        let total = 0;
+
+        if (orderData.type === 'cart_order') {
+          (orderData.cartItems || []).forEach(item => {
+            const itemTotal = (item.price || 0) * (item.quantity || 1);
+            total += itemTotal;
+            itemsHtml += `
+              <tr class="receipt-item-row">
+                <td class="receipt-item-name">${item.name} - ${item.option}</td>
+                <td class="receipt-item-qty">${item.quantity || 1}</td>
+                <td class="receipt-item-price">${item.price} pesos</td>
+                <td class="receipt-item-total">${itemTotal} pesos</td>
+              </tr>
+            `;
+          });
+        } else if (orderData.type === 'custom_order') {
+          total = orderData.customOrder?.totalPrice || 0;
+          const qty = orderData.customOrder?.flowerQuantity || 1;
+          const unitPrice = qty ? Math.round(total / qty) : 0;
+          itemsHtml = `
+            <tr class="receipt-item-row">
+              <td class="receipt-item-name">Custom ${orderData.customOrder?.flowerType || 'Bouquet'} Bouquet</td>
+              <td class="receipt-item-qty">${qty}</td>
+              <td class="receipt-item-price">${unitPrice} pesos</td>
+              <td class="receipt-item-total">${total} pesos</td>
+            </tr>
+          `;
+        } else if (orderData.type === 'direct_order' && orderData.item) {
+          const item = orderData.item;
+          const quantity = item.quantity || 1;
+          total = (item.price || 0) * quantity;
+          itemsHtml = `
+            <tr class="receipt-item-row">
+              <td class="receipt-item-name">${item.name} - ${item.option || ''}</td>
+              <td class="receipt-item-qty">${quantity}</td>
+              <td class="receipt-item-price">${item.price || 0} pesos</td>
+              <td class="receipt-item-total">${total} pesos</td>
+            </tr>
+          `;
+        }
+
+        const paymentMethodText = orderData.payment === 'gcash' ? 'GCash' : 'Cash on Delivery';
+
+        window.lastOrder = orderData;
+        orderData.status = 'cancelled';
+        upsertTransaction(orderData);
+        receiptContent.innerHTML = `
+          <div class="receipt-container">
+            <div class="receipt-header">
+              <div class="receipt-logo">
+                <h1>FuzzBloom Creations</h1>
+                <p>Handcrafted Blooms That Last Forever</p>
+              </div>
+              <div class="receipt-title">
+                <h2>Cancellation Receipt</h2>
+                <p>Cancellation ID: ${orderData.cancelReceiptId}</p>
+              </div>
+            </div>
+
+            <div class="receipt-details">
+              <div class="receipt-info">
+                <div class="info-section">
+                  <h3>Cancellation Information</h3>
+                  <p><strong>Date:</strong> ${cancelDate.toLocaleDateString()}</p>
+                  <p><strong>Time:</strong> ${cancelDate.toLocaleTimeString()}</p>
+                  <p><strong>Original Transaction ID:</strong> ${orderData.transactionId}</p>
+                </div>
+                <div class="info-section">
+                  <h3>Customer Details</h3>
+                  <p><strong>Name:</strong> ${orderData.customer.name || 'N/A'}</p>
+                  <p><strong>Phone:</strong> ${orderData.customer.phone || 'N/A'}</p>
+                  <p><strong>Address:</strong> ${orderData.customer.address || 'N/A'}</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="receipt-items">
+              <h3>Cancelled Order Details</h3>
+              <table class="receipt-table">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Qty</th>
+                    <th>Price</th>
+                    <th>Total</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  ${itemsHtml || `<tr class="receipt-item-row"><td class="receipt-item-name">N/A</td><td class="receipt-item-qty">-</td><td class="receipt-item-price">-</td><td class="receipt-item-total">-</td></tr>`}
+                </tbody>
+              </table>
+            </div>
+
+            <div class="receipt-summary">
+              <div class="receipt-total">
+                <p><strong>Total Amount: ${total} pesos</strong></p>
+                <p><strong>Payment Method:</strong> ${paymentMethodText}</p>
+              </div>
+            </div>
+
+            <div class="receipt-footer">
+              <p>Your cancellation request was sent.</p>
+              <p>We will contact you soon to confirm.</p>
+              <div class="receipt-actions">
+                <button class="secondary" onclick="showReceipt(window.lastOrder)">View Original Receipt</button>
+              </div>
+              <p class="receipt-note">This is an electronic cancellation receipt. Please keep for your records.</p>
+            </div>
+          </div>
+        `;
+
+        document.getElementById('receiptModal').style.display = 'block';
+      }
+
+      function cancelOrder() {
+        const lastOrder = window.lastOrder;
+
+        if (!lastOrder || !lastOrder.customer) {
+          alert('No recent order found to cancel.');
+          return;
+        }
+
+        if (!confirm(`Are you sure you want to cancel this order?\n\nTransaction ID: ${lastOrder.transactionId || 'N/A'}`)) {
+          return;
+        }
+
+        const transactionId = lastOrder.transactionId || 'N/A';
+        const customerName = lastOrder.customer.name || 'N/A';
+        const phone = lastOrder.customer.phone || 'N/A';
+        const address = lastOrder.customer.address || 'N/A';
+        const orderType = lastOrder.type || 'N/A';
+        const payment = lastOrder.payment || 'N/A';
+
+        let itemsSummary = '';
+        if (orderType === 'cart_order' && Array.isArray(lastOrder.cartItems)) {
+          itemsSummary = lastOrder.cartItems
+            .map(item => `${item.name} - ${item.option} (${item.quantity || 1}x)`)
+            .join(', ');
+        } else if (orderType === 'custom_order' && lastOrder.customOrder) {
+          itemsSummary = `Custom ${lastOrder.customOrder.flowerType} (${lastOrder.customOrder.flowerQuantity} stems)`;
+        }
+
+        const message = [
+          `Order Cancellation Request`,
+          ``,
+          `Transaction ID: ${transactionId}`,
+          `Order Type: ${orderType}`,
+          `Payment: ${payment}`,
+          itemsSummary ? `Items: ${itemsSummary}` : null,
+          ``,
+          `Customer: ${customerName}`,
+          `Phone: ${phone}`,
+          `Address: ${address}`,
+          ``,
+          `Requested at: ${new Date().toLocaleString()}`
+        ].filter(Boolean).join('\n');
+
+        // Send cancellation request
+        fetch('https://formspree.io/f/xykngblp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            type: 'cancel',
+            subject: 'Order Cancellation Request',
+            message,
+            transactionId,
+            orderType,
+            payment,
+            customerName,
+            phone,
+            address,
+            itemsSummary,
+            date: new Date().toLocaleString()
+          })
+        }).then(() => {
+          lastOrder.cancelRequestedAt = new Date().toISOString();
+          if (!lastOrder.cancelReceiptId) {
+            lastOrder.cancelReceiptId = generateCancellationId();
+          }
+          lastOrder.status = 'cancelled';
+          window.lastOrder = lastOrder;
+          upsertTransaction(lastOrder);
+          showCancellationReceipt(lastOrder);
+        }).catch(() => {
+          lastOrder.cancelRequestedAt = new Date().toISOString();
+          if (!lastOrder.cancelReceiptId) {
+            lastOrder.cancelReceiptId = generateCancellationId();
+          }
+          lastOrder.status = 'cancelled';
+          window.lastOrder = lastOrder;
+          upsertTransaction(lastOrder);
+          showCancellationReceipt(lastOrder);
+        });
+      }
+
+      function showNoOrderReceipt() {
+        const receiptContent = document.getElementById('receiptContent');
+        receiptContent.innerHTML = `
+          <div class="receipt-container">
+            
+            <div class="receipt-details">
+              <p style="text-align: center; font-size: 1.2rem; margin: 2rem 0;">No orders placed yet.</p>
+              <p style="text-align: center;">If you need to cancel a previous order, contact ta.ta.060311@gmail.com or call 670-067-6767.</p>
+            </div>
+          </div>
+        `;
+        
+        document.getElementById('receiptModal').style.display = 'block';
+      }
+
+      function showCancelInfo() {
+        // backwards-compatible alias
+        openOrderDetails();
+      }
+    </script>
+  </body>
+</html>
